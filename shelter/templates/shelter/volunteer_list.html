@@ -1,0 +1,53 @@
+{% extends "shelter/base.html" %}
+
+{% block title %}Our Volunteers - Pet Shelter{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+    <h1 class="text-success fw-bold">🤝 Our Dedicated Care Team</h1>
+    <p class="text-muted fs-5">Meet the wonderful people who dedicate their time to help our shelter pets.</p>
+</div>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    {% for volunteer in volunteer_list %}
+        <div class="col">
+            <div class="card h-100 shadow-sm border-0">
+                <div class="card-body p-4">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; font-size: 24px;">
+                            👤‍💻
+                        </div>
+                        <div>
+                            <h5 class="card-title fw-bold text-dark my-0">{{ volunteer.username }}</h5>
+                            <span class="badge bg-light text-secondary border mt-1">
+                                {{ volunteer.experience_years|default:"0" }} years of experience
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="border-top pt-3 mt-2">
+                        <h6 class="fw-bold text-muted mb-2">Pets under care:</h6>
+                        {% with pets=volunteer.pets.all %}
+                            {% if pets %}
+                                <div class="d-flex flex-wrap gap-1">
+                                    {% for pet in pets %}
+                                        <a href="{% url 'shelter:pet-detail' pk=pet.pk %}" class="btn btn-sm btn-outline-success py-0 px-2 fs-6">
+                                            🐾 {{ pet.name }}
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                <p class="text-muted small my-0">Currently not assigned to any pet.</p>
+                            {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="col-12 text-center my-5">
+            <p class="fs-4 text-muted">No volunteers found in the database.</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
