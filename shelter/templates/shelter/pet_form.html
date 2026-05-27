@@ -1,0 +1,50 @@
+{% extends "shelter/base.html" %}
+
+{% block title %}{% if object %}Edit {{ object.name }}{% else %}Add New Pet{% endif %} - Pet Shelter{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-md-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-success text-white fw-bold py-3">
+                {% if object %}📝 Edit Pet Details{% else %}🐾 Add a New Pet to Shelter{% endif %}
+            </div>
+            <div class="card-body p-4">
+                <form action="" method="post" novalidate>
+                    {% csrf_token %}
+                    
+                    {% for field in form %}
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-secondary">{{ field.label }}</label>
+                            {{ field.errors }}
+                            {% if field.field.widget.input_type == "checkbox" %}
+                                <div class="form-check form-switch fs-5">
+                                    {{ field }}
+                                </div>
+                            {% else %}
+                                <div class="input-group">
+                                    {{ field }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <a href="{% if object %}{% url 'shelter:pet-detail' pk=object.pk %}{% else %}{% url 'shelter:pet-list' %}{% endif %}" class="btn btn-outline-secondary">Cancel</a>
+                        <button type="submit" class="btn btn-success fw-bold px-4">Save Pet</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('input:not([type="checkbox"]), select, textarea').forEach(function(el) {
+        el.classList.add('form-control');
+    });
+    document.querySelectorAll('input[type="checkbox"]').forEach(function(el) {
+        el.classList.add('form-check-input');
+    });
+</script>
+{% endblock %}
