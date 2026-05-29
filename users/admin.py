@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from shelter.models import Volunteer
+from .models import Volunteer
 
 
 class VolunteerAdmin(UserAdmin):

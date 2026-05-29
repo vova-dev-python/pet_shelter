@@ -1,9 +1,10 @@
+from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Pet, Volunteer, ShelterLocation
+from .models import Pet, ShelterLocation
 
 
 class IndexView(TemplateView):
@@ -13,7 +14,8 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['num_pets'] = Pet.objects.count()
-        context['num_volunteers'] = Volunteer.objects.count()
+        user = get_user_model()
+        context['num_volunteers'] = user.objects.count()
         context['num_locations'] = ShelterLocation.objects.count()
         return context
 

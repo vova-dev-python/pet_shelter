@@ -41,12 +41,3 @@ class Pet(models.Model):
 
     def __str__(self) -> str:
         return f'{self.name} ({self.animal_type.name}, {self.age_months} m.o.)'
-
-
-class Volunteer(AbstractUser):
-    phone_number = models.CharField(max_length=20, blank=True, null=True)
-    experience_years = models.IntegerField(default=0)
-    pets = models.ManyToManyField('Pet', related_name='volunteers', blank=True)
-
-    def __str__(self):
-        return f'{self.username} ({self.experience_years} yrs exp)'
