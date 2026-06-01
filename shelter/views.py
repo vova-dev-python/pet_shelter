@@ -1,9 +1,10 @@
 from django.contrib.auth import get_user_model
-from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
+
 from .models import Pet, ShelterLocation
 
 
@@ -35,6 +36,7 @@ class PetDetailView(DetailView):
 
 class ToggleVolunteerAssignmentView(LoginRequiredMixin, View):
     """View to assign/unassign the current volunteer to/from a specific pet."""
+
     def post(self, request, *args, **kwargs):
         pk = self.kwargs.get('pk')
         pet = get_object_or_404(Pet, pk=pk)

@@ -1,4 +1,5 @@
 from django.urls import path
+
 from .views import VolunteerListView
 
 app_name = 'users'

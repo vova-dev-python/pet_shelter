@@ -8,51 +8,51 @@
 </head>
 <body class="bg-light d-flex flex-column min-vh-100">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm mb-4">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="{% url 'shelter:index' %}">🐾 PetShelter</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-side-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'shelter:index' %}">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'shelter:pet-list' %}">Pets</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'users:volunteer-list' %}">Volunteers</a>
-                        </li>
-                    </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-success shadow-sm mb-4">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{% url 'shelter:index' %}">🐾 PetShelter</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-side-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'shelter:index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'shelter:pet-list' %}">Pets</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'users:volunteer-list' %}">Volunteers</a>
+                </li>
+            </ul>
 
-                <div class="d-flex text-white align-items-center">
-                    {% if user.is_authenticated %}
-                        <span class="me-3">Hello, <strong>{{ user.username }}</strong>!</span>
-                        <form action="{% url 'logout' %}" method="post" class="m-0">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-outline-light btn-sm fw-bold">Logout</button>
-                        </form>
-                    {% else %}
-                        <a href="{% url 'login' %}" class="btn btn-outline-light btn-sm me-2 fw-bold">Login</a>
-                    {% endif %}
-                </div>
+            <div class="d-flex text-white align-items-center">
+                {% if user.is_authenticated %}
+                    <span class="me-3">Hello, <strong>{{ user.username }}</strong>!</span>
+                    <form action="{% url 'logout' %}" method="post" class="m-0">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-light btn-sm fw-bold">Logout</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-outline-light btn-sm me-2 fw-bold">Login</a>
+                {% endif %}
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <main class="container flex-grow-1">
-        {% block content %}
-        {% endblock %}
-    </main>
+<main class="container flex-grow-1">
+    {% block content %}
+    {% endblock %}
+</main>
 
-    <footer class="bg-white text-center py-3 border-top mt-4 text-muted">
-        <div class="container">
-            <small>&copy; 2026 Pet Shelter Portfolio Project. Built with Django & Bootstrap.</small>
-        </div>
-    </footer>
+<footer class="bg-white text-center py-3 border-top mt-4 text-muted">
+    <div class="container">
+        <small>&copy; 2026 Pet Shelter Portfolio Project. Built with Django & Bootstrap.</small>
+    </div>
+</footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

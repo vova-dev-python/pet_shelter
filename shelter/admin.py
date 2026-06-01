@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from .models import AnimalType, Pet, ShelterLocation
 
 admin.site.register(AnimalType)
