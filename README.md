@@ -1,28 +1,42 @@
-PetShelter — веб-додаток на базі фреймворку Django, платформа для автоматизації роботи притулку для тварин, де
-авторизовані користувачі можуть ставати волонтерами та брати опіку над тваринами.
+Pet Shelter Project
+A Django-based web application designed for managing a pet shelter, tracking available pets, and coordinating volunteers.
 
-Моделі (Структура даних):
+Features
+- Volunteer Management: Seamless tracking of shelter volunteers, including their profile details, registration data, and experience.
 
-AnimalType — типи тварин у притулку (наприклад: Dog, Cat).
+- Pet Profiles: Detailed registration of pets (name, animal type, age, and location) currently staying at the shelter.
 
-ShelterLocation — фізичні локації або філії притулку, де можуть перебувати тварини (наприклад: Lviv).
+- Volunteer Assignment: Ability to easily assign or toggle volunteers for specific pets.
 
-Pet — оголошення/картка тваринки з полями: імені, віку в місяцях, статі, опису, статусу всиновлення (is_adopted), а
-також зв’язками до типу тварини та її локації.
+- Django Admin Panel: Fully customized administrative interface for shelter coordinators to manage database records.
 
-Volunteer(AbstractUser) — кастомна модель користувача-волонтера, що доповнює базову модель користувача: номером
-телефону, роками досвіду та прив'язкою до тварин, якими він опікується.
+PEP 8 Compliant: Clean code base that strictly follows modern Python and Django style guides.
 
-По функціоналу проекту:
+Setup and Installation
+Follow these steps to set up and run the project locally:
 
-- Аутентифікація: Реєстрація користувачів, логін та логаут.
+1. Clone the repository
+git clone https://github.com/vova-dev-python/pet_shelter
+cd pet_shelter
 
-- Перегляд та пошук: Головна сторінка, повний список тварин у притулку, а також детальна картка кожної тварини.
+2. Create and activate a virtual environment
+For Windows:
+python -m venv venv
+venv\Scripts\activate
+For macOS and Linux:
+python3 -m venv venv
+source venv/bin/activate
 
-- Керування картками: Можливість створення, редагування та видалення записів про тварин адміністрацією притулку.
+3. Install dependencies
+pip install -r requirements.txt
 
-- Команда опіки: Перегляд списку всіх волонтерів притулку та тварин, закріплених за ними.
+4. Run migrations
+python manage.py migrate
 
-- Волонтерство: Інтерактивний функціонал для авторизованих користувачів, який дозволяє в один клік записатися в команду
-  опіки над конкретною твариною або відмовитися від неї.
-- 
+5. Create a superuser
+python manage.py createsuperuser
+
+6. Start the server
+python manage.py runserver
+
+7. Once the server is running, open your browser and navigate to http://127.0.0.1:8000/ to explore the website.
