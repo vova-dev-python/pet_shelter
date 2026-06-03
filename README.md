@@ -1,4 +1,10 @@
 Pet Shelter Project
+
+The project is deployed and available online here: https://pet-shelter-vova.onrender.com
+To log in and test the application, please use the following test account:
+- Username: user
+- Password: user12345
+- 
 A Django-based web application designed for managing a pet shelter, tracking available pets, and coordinating volunteers.
 
 Features
