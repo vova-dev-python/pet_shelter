@@ -27,4 +27,9 @@ urlpatterns = [
         ToggleVolunteerAssignmentView.as_view(),
         name='toggle-volunteer-assignment'
     ),
+    path(
+        'pets/<int:pk>/toggle-assignment/',
+        ToggleVolunteerAssignmentView.as_view(),
+        name='toggle_volunteer_assignment'
+    ),
 ]
