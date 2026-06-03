@@ -23,13 +23,13 @@ urlpatterns = [
     path('pets/<int:pk>/update/', PetUpdateView.as_view(), name='pet-update'),
     path('pets/<int:pk>/delete/', PetDeleteView.as_view(), name='pet-delete'),
     path(
-        'pets/<int:pk>/toggle-assignment/',
+        "pets/<int:pk>/toggle-assignment/",
         ToggleVolunteerAssignmentView.as_view(),
-        name='toggle-volunteer-assignment'
+        name="toggle-volunteer-assignment",
     ),
     path(
-        'pets/<int:pk>/toggle_volunteer_assignment/',
+        "pets/<int:pk>/toggle-assignment/",
         ToggleVolunteerAssignmentView.as_view(),
-        name='toggle_volunteer_assignment'
+        name="toggle-pet-assignment",
     ),
 ]
