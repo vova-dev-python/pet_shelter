@@ -40,3 +40,5 @@ python manage.py createsuperuser
 python manage.py runserver
 
 7. Once the server is running, open your browser and navigate to http://127.0.0.1:8000/ to explore the website.
+
+The project is successfully deployed and available at: https://pet-shelter-vova.onrender.com
