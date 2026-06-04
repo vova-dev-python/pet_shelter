@@ -1,0 +1,79 @@
+﻿[
+  {
+    "model": "shelter.animaltype",
+    "pk": 1,
+    "fields": {
+      "name": "Dog",
+      "description": ""
+    }
+  },
+  {
+    "model": "shelter.animaltype",
+    "pk": 2,
+    "fields": {
+      "name": "Cat",
+      "description": ""
+    }
+  },
+  {
+    "model": "shelter.shelterlocation",
+    "pk": 1,
+    "fields": {
+      "name": "Ikplev",
+      "address": "Lviv, Promyslova St., 56",
+      "phone": "(068) 535-45-45"
+    }
+  },
+  {
+    "model": "shelter.pet",
+    "pk": 1,
+    "fields": {
+      "name": "Rex",
+      "age_months": 18,
+      "gender": "M",
+      "description": "Jack Russell terriers are extremely active, athletic because they were bred to hunt and bolt foxes. They're also very intelligent, curious and brave, he loves endless balls thrown to him.",
+      "is_adopted": false,
+      "animal_type": 1,
+      "location": 1
+    }
+  },
+  {
+    "model": "shelter.pet",
+    "pk": 2,
+    "fields": {
+      "name": "Lola",
+      "age_months": 48,
+      "gender": "F",
+      "description": "Very nice and pretty dog. Love children. Looking for lovely people.",
+      "is_adopted": false,
+      "animal_type": 1,
+      "location": 1
+    }
+  },
+  {
+    "model": "shelter.pet",
+    "pk": 3,
+    "fields": {
+      "name": "Tom",
+      "age_months": 24,
+      "gender": "M",
+      "description": "Very playful cat, loves people, looking for a caring family.",
+      "is_adopted": false,
+      "animal_type": 2,
+      "location": 1
+    }
+  },
+  {
+    "model": "shelter.pet",
+    "pk": 4,
+    "fields": {
+      "name": "Nika",
+      "age_months": 36,
+      "gender": "F",
+      "description": "Very clean cat, looking for a loving family.",
+      "is_adopted": false,
+      "animal_type": 2,
+      "location": 1
+    }
+  }
+]

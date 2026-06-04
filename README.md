@@ -1,23 +1,50 @@
-PetShelter — веб-додаток на базі фреймворку Django, платформа для автоматизації роботи притулку для тварин, де авторизовані користувачі можуть ставати волонтерами та брати опіку над тваринами.
+Pet Shelter Project
 
-Моделі (Структура даних):
-
-AnimalType — типи тварин у притулку (наприклад: Dog, Cat).
-
-ShelterLocation — фізичні локації або філії притулку, де можуть перебувати тварини (наприклад: Lviv).
-
-Pet — оголошення/картка тваринки з полями: імені, віку в місяцях, статі, опису, статусу всиновлення (is_adopted), а також зв’язками до типу тварини та її локації.
-
-Volunteer(AbstractUser) — кастомна модель користувача-волонтера, що доповнює базову модель користувача: номером телефону, роками досвіду та прив'язкою до тварин, якими він опікується.
-
-По функціоналу проекту:
-- Аутентифікація: Реєстрація користувачів, логін та логаут.
-
-- Перегляд та пошук: Головна сторінка, повний список тварин у притулку, а також детальна картка кожної тварини.
-
-- Керування картками: Можливість створення, редагування та видалення записів про тварин адміністрацією притулку.
-
-- Команда опіки: Перегляд списку всіх волонтерів притулку та тварин, закріплених за ними.
-
-- Волонтерство: Інтерактивний функціонал для авторизованих користувачів, який дозволяє в один клік записатися в команду опіки над конкретною твариною або відмовитися від неї.
+The project is deployed and available online here: https://pet-shelter-vova.onrender.com
+To log in and test the application, please use the following test account:
+- Username: user
+- Password: user12345
 - 
+A Django-based web application designed for managing a pet shelter, tracking available pets, and coordinating volunteers.
+
+Features
+- Volunteer Management: Seamless tracking of shelter volunteers, including their profile details, registration data, and experience.
+
+- Pet Profiles: Detailed registration of pets (name, animal type, age, and location) currently staying at the shelter.
+
+- Volunteer Assignment: Ability to easily assign or toggle volunteers for specific pets.
+
+- Django Admin Panel: Fully customized administrative interface for shelter coordinators to manage database records.
+
+PEP 8 Compliant: Clean code base that strictly follows modern Python and Django style guides.
+
+Setup and Installation
+Follow these steps to set up and run the project locally:
+
+1. Clone the repository
+git clone https://github.com/vova-dev-python/pet_shelter
+cd pet_shelter
+
+2. Create and activate a virtual environment
+For Windows:
+python -m venv venv
+venv\Scripts\activate
+For macOS and Linux:
+python3 -m venv venv
+source venv/bin/activate
+
+3. Install dependencies
+pip install -r requirements.txt
+
+4. Run migrations
+python manage.py migrate
+
+5. Create a superuser
+python manage.py createsuperuser
+
+6. Start the server
+python manage.py runserver
+
+7. Once the server is running, open your browser and navigate to http://127.0.0.1:8000/ to explore the website.
+
+The project is successfully deployed and available at: https://pet-shelter-vova.onrender.com
